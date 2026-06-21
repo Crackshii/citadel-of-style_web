@@ -1362,10 +1362,48 @@ footer {
 
 /* ─── TEAM ─── */
 #team { background: var(--black); }
+#team .section-title { display: none; }
 .team-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
+}
+.team-feature {
+    width: 100%;
+    min-width: 0;
+}
+.team-card--featured {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    background: var(--dark2);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.team-card--featured:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-dark);
+}
+.team-card--featured .team-card-photo {
+    aspect-ratio: auto;
+    min-height: 520px;
+}
+.team-card--featured .team-card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-top: none;
+    border-left: 2px solid var(--red);
+    padding: 40px 36px;
+}
+.team-card-head {
+    display: block;
+    margin-bottom: 18px;
+}
+.team-card-head .team-card-name {
+    font-size: clamp(34px, 3.5vw, 44px);
+}
+.team-card--featured .team-card-photo-info {
+    display: none;
 }
 .team-card {
     background: var(--dark2);
@@ -1595,7 +1633,6 @@ footer {
         right: clamp(16px, 4vw, 32px);
     }
     .services-grid { grid-template-columns: repeat(2, 1fr); }
-    .team-grid { grid-template-columns: repeat(2, 1fr); }
     .reviews-grid { grid-template-columns: repeat(2, 1fr); }
     .process-grid { grid-template-columns: repeat(3, 1fr); }
     .process-card { padding: 34px 24px 28px; }
@@ -1670,7 +1707,21 @@ footer {
     .service-card > img {
         object-position: var(--img-pos-mobile, var(--img-pos, center));
     }
-    .team-grid { grid-template-columns: 1fr; }
+    .team-card--featured {
+        grid-template-columns: 1fr;
+    }
+    #team .section-title { display: block; }
+    .team-card--featured .team-card-photo {
+        aspect-ratio: 3 / 4;
+        min-height: 0;
+    }
+    .team-card--featured .team-card-body {
+        border-left: none;
+        border-top: 2px solid var(--red);
+        padding: 24px 28px 28px;
+    }
+    .team-card-head { display: none; }
+    .team-card--featured .team-card-photo-info { display: block; }
     .reviews-grid { grid-template-columns: 1fr; }
     .process-grid { grid-template-columns: 1fr; }
     .process-card { min-height: auto; }
