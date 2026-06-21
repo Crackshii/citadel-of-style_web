@@ -1276,16 +1276,37 @@ footer {
 .footer-bottom-links a:hover { color: var(--white); }
 
 /* ─── PRICE TABLE ─── */
-#price { background: var(--dark2); }
+#price {
+    background:
+        radial-gradient(ellipse 90% 70% at 50% 100%, rgba(210,214,218,0.05), transparent 65%),
+        var(--dark2);
+}
+#price .container {
+    display: grid;
+    grid-template-columns: minmax(0, 640px);
+    justify-content: center;
+}
+#price .container::before { display: none; }
+#price .section-label { margin-bottom: 10px; }
+#price .section-title { margin-bottom: 6px; }
+#price .section-title-script {
+    margin-bottom: 18px;
+    font-size: clamp(18px, 2vw, 24px);
+}
 .price-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 40px;
+    margin-top: 28px;
 }
 .price-cols > div {
-    padding: 32px;
-    background: rgba(10,10,10,0.28);
-    border: 1px solid var(--border);
+    padding: 28px 32px 32px;
+    background:
+        linear-gradient(180deg, rgba(255,255,255,0.045) 0%, transparent 38%),
+        linear-gradient(160deg, rgba(14,14,14,0.92) 0%, rgba(24,24,24,0.78) 55%, rgba(12,12,12,0.95) 100%);
+    border: 1px solid rgba(255,255,255,0.09);
+    box-shadow:
+        0 22px 56px rgba(0,0,0,0.38),
+        inset 0 1px 0 rgba(255,255,255,0.06);
 }
 .price-table tr {
     border-bottom: 1px solid var(--border);
@@ -1297,7 +1318,12 @@ footer {
     font-size: 14px;
     color: var(--gray-light);
 }
-.price-table td:first-child { color: var(--white); font-weight: 400; }
+.price-table td:first-child {
+    color: var(--white);
+    font-weight: 400;
+    padding-right: 20px;
+    line-height: 1.45;
+}
 .price-table td:last-child {
     text-align: right;
     font-family: 'Oswald', sans-serif;
@@ -1313,9 +1339,8 @@ footer {
     margin-top: 2px;
 }
 .price-cols {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    display: block;
+    width: 100%;
     min-width: 0;
 }
 .services-grid,
@@ -1578,7 +1603,6 @@ footer {
     .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
     .footer-brand { grid-column: 1 / -1; }
     .why-layout { gap: 48px; }
-    .price-cols { gap: 40px; }
     .partners-logos { gap: 28px 36px; }
 }
 
@@ -1614,7 +1638,7 @@ footer {
         bottom: auto;
         margin: 0 16px 20px;
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         max-width: none;
         flex-shrink: 0;
         background:
@@ -1665,8 +1689,7 @@ footer {
     }
     .footer-brand { grid-column: 1 / -1; }
     .footer-bottom { flex-direction: column; align-items: center; gap: 12px; }
-    .price-cols { grid-template-columns: 1fr; gap: 32px; }
-    .price-table td:last-child { white-space: normal; }
+    .price-cols { width: 100%; }
     .hero-img {
         width: 100%;
         height: 100%;
@@ -1723,20 +1746,49 @@ footer {
         padding: 0 16px;
         margin-bottom: 16px;
     }
-    .hero-stat { padding: 8px 3px; }
-    .hero-stat-num { font-size: 15px; }
+    .hero-stat { padding: 10px 4px; }
+    .hero-stat-num { font-size: clamp(16px, 4.8vw, 20px); }
     .hero-stat-label {
-        font-size: 6px;
-        letter-spacing: 0.2px;
-        line-height: 1.2;
+        font-size: clamp(7px, 2.2vw, 9px);
+        letter-spacing: 0.3px;
+        line-height: 1.25;
     }
-    .hero-stats { margin: 0 12px 14px; }
+    .hero-stats {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin: 0 12px 14px;
+    }
     .portfolio-grid { grid-template-columns: 1fr; }
     .portfolio-item { aspect-ratio: 4 / 5; }
     .partners-logos { gap: 16px 20px; }
     .partner-logo { font-size: 15px; }
-    .price-table td { font-size: 13px; padding: 12px 0; }
-    .price-cols > div { padding: 24px 18px; }
+    #price .section-title-script { margin-bottom: 16px; }
+    .price-cols > div {
+        padding: 22px 16px;
+        box-shadow:
+            0 16px 40px rgba(0,0,0,0.32),
+            inset 0 1px 0 rgba(255,255,255,0.05);
+    }
+    .price-table { margin-top: 28px; }
+    .price-table tr {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        padding: 14px 0;
+    }
+    .price-table td {
+        display: block;
+        width: 100%;
+        padding: 0;
+        font-size: 16px;
+        line-height: 1.45;
+    }
+    .price-table td:last-child {
+        text-align: left;
+        white-space: nowrap;
+        font-size: 17px;
+    }
+    .price-table td .price-note { margin-top: 4px; }
     .contact-info-item { padding: 16px 14px; gap: 12px; }
     .contact-info-icon { width: 40px; height: 40px; font-size: 15px; }
     .footer-bottom-links { flex-direction: column; gap: 8px; }
