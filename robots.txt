@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://citadel-of-style.ru/sitemap.xml
